@@ -1,13 +1,17 @@
-#summary One-sentence summary of this page.
+#summary Introduction to the tumblr widget
+#labels Featured
 
-= Introduction =
+= Welcome =
 
-Add your content here.
+http://img139.imageshack.us/img139/6990/tumblrhelpyw6.png
+
+*1* write your post _title_
+
+*2* write your _message_
+
+*3* click to post to tumblr.com
 
 
-= Details =
+*4* click to clear the _title_ and _message_
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+*5* connection status
