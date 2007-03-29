@@ -1,7 +1,7 @@
 #summary Introduction to the tumblr widget
 #labels Featured
 
-= Welcome =
+= How to post =
 
 http://img139.imageshack.us/img139/6990/tumblrhelpyw6.png
 
