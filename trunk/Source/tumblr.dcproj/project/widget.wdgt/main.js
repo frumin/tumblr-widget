@@ -212,7 +212,7 @@ function getFilename()
 {
 	var fileNameWExtension = uriList[0].substr(uriList[0].lastIndexOf('/') + 1);
 	var fName = fileNameWExtension.split('.');
-	return fName[0];
+	return decodeURI(fName[0]);
 }
 
 function fadeToPhoto()
