@@ -296,7 +296,7 @@ function sendPhotoPost()
 
     var requestString = '-F email=' + email + ' -F "password=' + password + '" -F type=' + type + ' -F "data=@' + data + '" -F "caption=' + caption + '" -F "generator=' + generator + '"';
 
-    command = '/usr/bin/curl ' + requestString + ' http://www.tumblr.com/api/write';
+    command = '/usr/bin/curl -H "Content-Type: multipart/form-data; charset=utf-8" ' + requestString + ' http://www.tumblr.com/api/write';
     // indicate that you're working here
     cmdout = widget.system(command, uploadHandler);
 }
@@ -325,7 +325,7 @@ function sendRegularPost()
     xmlhttp.open("POST",
     "http://www.tumblr.com/api/write",
     true);
-    xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded", "charset=utf-8");
 
     xmlhttp.send(encodeURI(requestString));
 

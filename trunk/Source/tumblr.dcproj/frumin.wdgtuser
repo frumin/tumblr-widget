@@ -5,7 +5,7 @@
 	<key>Breakpoints</key>
 	<dict/>
 	<key>CYLastWindowPosition</key>
-	<string>{532, 158}</string>
+	<string>{554, 263}</string>
 	<key>ContentSplitViewGeometry</key>
 	<dict>
 		<key>ContentSplitViewConfig</key>
@@ -58,7 +58,7 @@
 		</array>
 	</dict>
 	<key>MainWindowFrame</key>
-	<string>110 70 1004 679 0 0 1280 778 </string>
+	<string>95 89 1004 679 0 0 1280 778 </string>
 	<key>NavigatorSplitViewGeometry</key>
 	<dict>
 		<key>ContentSplitViewConfig</key>
@@ -98,7 +98,11 @@
 			</array>
 		</array>
 		<key>Objects view last selections</key>
-		<array/>
+		<array>
+			<array>
+				<integer>0</integer>
+			</array>
+		</array>
 		<key>Opened Steps</key>
 		<array>
 			<integer>5</integer>
