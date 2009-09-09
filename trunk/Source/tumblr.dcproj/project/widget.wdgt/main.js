@@ -298,12 +298,24 @@ function sendPhotoPost()
 
     command = '/usr/bin/curl -H "Content-Type: multipart/form-data; charset=utf-8" ' + requestString + ' http://www.tumblr.com/api/write';
     // indicate that you're working here
+	document.getElementById('status').innerText = "SENDING";
+	showStatus();
     cmdout = widget.system(command, uploadHandler);
 }
 
 function uploadHandler(obj)
 {
-    fadeToDefault();
+	if(cmdout.outputString != "Authentication failed.")
+	{
+		document.getElementById('status').innerText = "DONE!";
+		hideStatus();
+		fadeToDefault();
+	}
+	else
+	{
+		document.getElementById('status').innerText = "AUTH FAIL";
+		showBack();
+	}
 }
 
 function sendRegularPost()
@@ -319,6 +331,8 @@ function sendRegularPost()
 	var requestString = 'email=' + email + '&password=' + password + '&type=' + type + '&title=' + subject + '&body=' + body + '&generator=' + generator;
 
     // indicate progress here
+	document.getElementById('status').innerText = "SENDING";
+	showStatus();
 
     xmlhttp = new XMLHttpRequest();
 
@@ -332,6 +346,8 @@ function sendRegularPost()
     xmlhttp.onreadystatechange = function() {
         if (xmlhttp.status == 400) {
             // oops somebody fucked up
+			document.getElementById('status').innerText = "ERROR 400";
+			hideStatus();
         }
         else if (xmlhttp.status == 403) {
             // wrong pass, flip the bitch over
@@ -339,7 +355,9 @@ function sendRegularPost()
         }
         else {
 			// good job, clean up
+			document.getElementById('status').innerText = "DONE!";
             fadeToDefault();
+			hideStatus();
         }
     }
 }
@@ -408,4 +426,48 @@ function clearPassword()
 function goToSite(event)
 {
     widget.openURL("http://code.google.com/p/tumblr-widget");
+}
+
+function showStatus()
+{
+
+	document.getElementById('ribbon').style.visibility = "visible";
+	
+	// Values you provide
+var itemToFadeIn = document.getElementById("ribbon");	// replace with name of element to fade
+
+// Fading code
+var fadeHandler = function(a, c, s, f){ itemToFadeIn.style.opacity = c; };
+new AppleAnimator(500, 13, 0.0, 1.0, fadeHandler).start();
+
+	// Values you provide
+var itemToFadeIn = document.getElementById("status");	// replace with name of element to fade
+
+// Fading code
+var fadeHandler = function(a, c, s, f){ itemToFadeIn.style.opacity = c; };
+new AppleAnimator(500, 13, 0.0, 1.0, fadeHandler).start();
+
+	document.getElementById('status').style.visibility = "visible";
+
+}
+
+function hideStatus()
+{
+// Values you provide
+var itemToFadeOut = document.getElementById("status");	// replace with name of element to fade
+
+// Fading code
+var fadeHandler = function(a, c, s, f){ itemToFadeOut.style.opacity = c; };
+new AppleAnimator(500, 13, 1.0, 0.0, fadeHandler).start();
+
+	document.getElementById('status').innerText = "";
+	document.getElementById('status').style.visibility = "hidden";
+
+// Values you provide
+var itemToFadeOut = document.getElementById("ribbon");	// replace with name of element to fade
+
+// Fading code
+var fadeHandler = function(a, c, s, f){ itemToFadeOut.style.opacity = c; };
+new AppleAnimator(500, 13, 1.0, 0.0, fadeHandler).start();
+
 }

@@ -174,3 +174,51 @@ body {
     width: auto;
     height: auto;
 }
+
+#ribbon {
+    position: absolute;
+    margin-top: 0px;
+    top: 30px;
+    left: 53px;
+    bottom: 30px;
+    height: auto;
+    right: 53px;
+    width: auto;
+    visibility: hidden;
+}
+
+#inner_image1 {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    top: 0px;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+}
+
+#status {
+    overflow: hidden;
+    position: absolute;
+    margin-top: 0px;
+    color: rgb(212, 212, 212);
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: clip;
+    cursor: default;
+    -khtml-user-select: none;
+    left: 60px;
+    right: 60px;
+    width: auto;
+    bottom: 52px;
+    height: auto;
+    font-size: 14px;
+    top: 54px;
+    font-family: HelveticaNeue-Light;
+    visibility: hidden;
+}
+
+.selected #status {
+    color: white;
+}

@@ -8,7 +8,11 @@ var dashcodePartSpecs = {
     "done": { "creationFunction": "CreateGlassButton", "onclick": "showFront", "text": "Done" },
     "imageArea": { "view": "DC.ImageLayout" },
     "info": { "backgroundStyle": "black", "creationFunction": "CreateInfoButton", "foregroundStyle": "white", "frontID": "front", "onclick": "showBack" },
-    "logo": { "view": "DC.ImageLayout" }
+    "logo": { "view": "DC.ImageLayout" },
+    "ribbon": { "view": "DC.ImageLayout" },
+    "status": { "text": "status", "view": "DC.Text" }
 };
+
+
 
 
