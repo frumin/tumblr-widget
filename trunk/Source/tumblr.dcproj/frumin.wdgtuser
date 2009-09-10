@@ -46,7 +46,7 @@
 	<key>Design time language</key>
 	<string>en.lproj</string>
 	<key>EvaluatorFrame</key>
-	<string>150 447 479 226 0 0 1280 778 </string>
+	<string>729 535 479 226 0 0 1280 778 </string>
 	<key>MainSplitViewGeometry</key>
 	<dict>
 		<key>_indexOfCollapsedView</key>
@@ -58,7 +58,7 @@
 		</array>
 	</dict>
 	<key>MainWindowFrame</key>
-	<string>95 89 1004 679 0 0 1280 778 </string>
+	<string>95 91 1004 679 0 0 1280 778 </string>
 	<key>NavigatorSplitViewGeometry</key>
 	<dict>
 		<key>ContentSplitViewConfig</key>
@@ -76,7 +76,7 @@
 	<key>ResourceLogDivider</key>
 	<real>-432</real>
 	<key>ResourceLogFrame</key>
-	<string>476 99 288 359 0 0 1280 778 </string>
+	<string>119 314 288 359 0 0 1280 778 </string>
 	<key>Widget</key>
 	<dict>
 		<key>Objects view expanded items</key>

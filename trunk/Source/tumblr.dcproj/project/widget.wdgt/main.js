@@ -11,6 +11,8 @@
 function load()
 {
     dashcode.setupParts();
+	document.getElementById('status').style.visibility = "hidden";
+	document.getElementById('ribbon').style.visibility = "hidden";
 	document.getElementById('tumblrPassword').type = 'password';
 	readPrefs();
 }
@@ -281,7 +283,7 @@ function fadeToDefault()
     var fadeHandler = function(a, c, s, f) {
         itemToFadeIn.style.opacity = c;
     };
-    new AppleAnimator(500, 13, 0.0, 1.0, fadeHandler).start();
+    new AppleAnimator(300, 13, 0.0, 1.0, fadeHandler).start();
 }
 
 
@@ -299,7 +301,7 @@ function sendPhotoPost()
     command = '/usr/bin/curl -H "Content-Type: multipart/form-data; charset=utf-8" ' + requestString + ' http://www.tumblr.com/api/write';
     // indicate that you're working here
 	document.getElementById('status').innerText = "SENDING";
-	showStatus();
+	setTimeout("showStatus(300)", 0);
     cmdout = widget.system(command, uploadHandler);
 }
 
@@ -308,13 +310,15 @@ function uploadHandler(obj)
 	if(cmdout.outputString != "Authentication failed.")
 	{
 		document.getElementById('status').innerText = "DONE!";
-		hideStatus();
-		fadeToDefault();
+		setTimeout("hideStatus()", 2000);
+		setTimeout("fadeToDefault()", 0);
 	}
 	else
 	{
 		document.getElementById('status').innerText = "AUTH FAIL";
-		showBack();
+		setTimeout("fadeToDefault()", 0);
+		//showBack();
+		setTimeout("hideStatus()", 2000);
 	}
 }
 
@@ -332,7 +336,7 @@ function sendRegularPost()
 
     // indicate progress here
 	document.getElementById('status').innerText = "SENDING";
-	showStatus();
+	setTimeout("showStatus(300)", 0);
 
     xmlhttp = new XMLHttpRequest();
 
@@ -347,7 +351,7 @@ function sendRegularPost()
         if (xmlhttp.status == 400) {
             // oops somebody fucked up
 			document.getElementById('status').innerText = "ERROR 400";
-			hideStatus();
+			setTimer("hideStatus()", 2000);
         }
         else if (xmlhttp.status == 403) {
             // wrong pass, flip the bitch over
@@ -356,8 +360,8 @@ function sendRegularPost()
         else {
 			// good job, clean up
 			document.getElementById('status').innerText = "DONE!";
-            fadeToDefault();
-			hideStatus();
+            setTimeout("fadeToDefault()", 0);
+			setTimer("hideStatus()", 2000);
         }
     }
 }
@@ -425,29 +429,29 @@ function clearPassword()
 
 function goToSite(event)
 {
-    widget.openURL("http://code.google.com/p/tumblr-widget");
+    widget.openURL("http://macwidget.tumblr.com");
 }
 
-function showStatus()
+function showStatus(fadePeriod)
 {
 
-	document.getElementById('ribbon').style.visibility = "visible";
+	document.getElementById("ribbon").style.visibility = "visible";
 	
 	// Values you provide
 var itemToFadeIn = document.getElementById("ribbon");	// replace with name of element to fade
 
 // Fading code
 var fadeHandler = function(a, c, s, f){ itemToFadeIn.style.opacity = c; };
-new AppleAnimator(500, 13, 0.0, 1.0, fadeHandler).start();
+new AppleAnimator(fadePeriod, 13, 0.0, 1.0, fadeHandler).start();
+
+	document.getElementById('status').style.visibility = "visible";
 
 	// Values you provide
 var itemToFadeIn = document.getElementById("status");	// replace with name of element to fade
 
 // Fading code
 var fadeHandler = function(a, c, s, f){ itemToFadeIn.style.opacity = c; };
-new AppleAnimator(500, 13, 0.0, 1.0, fadeHandler).start();
-
-	document.getElementById('status').style.visibility = "visible";
+new AppleAnimator(fadePeriod, 13, 0.0, 1.0, fadeHandler).start();
 
 }
 
@@ -468,6 +472,9 @@ var itemToFadeOut = document.getElementById("ribbon");	// replace with name of e
 
 // Fading code
 var fadeHandler = function(a, c, s, f){ itemToFadeOut.style.opacity = c; };
-new AppleAnimator(500, 13, 1.0, 0.0, fadeHandler).start();
+new AppleAnimator(200, 13, 1.0, 0.0, fadeHandler).start();
+
+	document.getElementById('ribbon').style.visibility = "hidden";
+
 
 }

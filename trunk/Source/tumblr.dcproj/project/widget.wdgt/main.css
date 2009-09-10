@@ -184,7 +184,6 @@ body {
     height: auto;
     right: 53px;
     width: auto;
-    visibility: hidden;
 }
 
 #inner_image1 {
@@ -216,7 +215,6 @@ body {
     font-size: 14px;
     top: 54px;
     font-family: HelveticaNeue-Light;
-    visibility: hidden;
 }
 
 .selected #status {
