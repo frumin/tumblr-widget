@@ -5,7 +5,7 @@
 	<key>Breakpoints</key>
 	<dict/>
 	<key>CYLastWindowPosition</key>
-	<string>{554, 263}</string>
+	<string>{715, 198}</string>
 	<key>ContentSplitViewGeometry</key>
 	<dict>
 		<key>ContentSplitViewConfig</key>
@@ -16,8 +16,8 @@
 		<integer>0</integer>
 		<key>sizes</key>
 		<array>
-			<string>{{0, 0}, {759, 386}}</string>
-			<string>{{0, 396}, {759, 241}}</string>
+			<string>{{0, 0}, {759, 283}}</string>
+			<string>{{0, 293}, {759, 344}}</string>
 		</array>
 	</dict>
 	<key>ContentViewType</key>
@@ -33,11 +33,11 @@
 		<key>Path</key>
 		<string>tumblr</string>
 		<key>Save</key>
-		<false/>
+		<true/>
 		<key>SavePath</key>
 		<string>/Users/frumin/Desktop</string>
 		<key>WidgetDeployName</key>
-		<string>tumblr upload</string>
+		<string>tumblr uploadr</string>
 		<key>enableSimulation</key>
 		<true/>
 		<key>simulatedHost</key>
@@ -46,7 +46,7 @@
 	<key>Design time language</key>
 	<string>en.lproj</string>
 	<key>EvaluatorFrame</key>
-	<string>729 535 479 226 0 0 1280 778 </string>
+	<string>56 505 479 226 0 0 1280 778 </string>
 	<key>MainSplitViewGeometry</key>
 	<dict>
 		<key>_indexOfCollapsedView</key>
@@ -58,7 +58,7 @@
 		</array>
 	</dict>
 	<key>MainWindowFrame</key>
-	<string>95 91 1004 679 0 0 1280 778 </string>
+	<string>80 93 1004 679 0 0 1280 778 </string>
 	<key>NavigatorSplitViewGeometry</key>
 	<dict>
 		<key>ContentSplitViewConfig</key>
@@ -83,14 +83,6 @@
 		<array>
 			<array>
 				<integer>0</integer>
-			</array>
-			<array>
-				<integer>0</integer>
-				<integer>0</integer>
-			</array>
-			<array>
-				<integer>0</integer>
-				<integer>1</integer>
 			</array>
 			<array>
 				<integer>0</integer>
