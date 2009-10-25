@@ -499,6 +499,11 @@ function uploadHandler(obj)
 		document.getElementById('status').innerText = "DONE!";
 		setTimeout("hideStatus()", 2000);
 		setTimeout("fadeToDefault()", 0);
+		
+		if (window.HelperPlugIn)
+		{
+			HelperPlugIn.growlUploadComplete();
+		}
 	}
 	else
 	{
@@ -506,6 +511,15 @@ function uploadHandler(obj)
 		setTimeout("fadeToDefault()", 0);
 		showBack();
 		setTimeout("hideStatus()", 2000);
+		
+		if (HelperPlugIn)
+		{
+			HelperPlugIn.growlUploadFailure();
+		}
+		else
+		{
+			alert("fuck");
+		}
 	}
 }
 

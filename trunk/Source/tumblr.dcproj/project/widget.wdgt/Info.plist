@@ -30,6 +30,8 @@
 	<integer>120</integer>
 	<key>MainHTML</key>
 	<string>main.html</string>
+	<key>Plugin</key>
+	<string>HelperPlugIn.widgetplugin</string>
 	<key>Width</key>
 	<integer>200</integer>
 </dict>
