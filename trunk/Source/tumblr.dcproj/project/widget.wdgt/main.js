@@ -157,10 +157,6 @@ function dragDrop(event)
 		{
 			sendMoviePost();
 		}
-		else
-		{
-			sendMovieURL();
-		}
 	}
 	else if(checkForAudio())
 	{
@@ -174,6 +170,10 @@ function dragDrop(event)
 			sendAudioURL();
 		}
 	}
+	if (checkForYoutube())
+	{
+		sendMovieURL();
+	}
 }
 
 // Be sure to assign these handlers for the ondragenter
@@ -185,13 +185,8 @@ function dragEnter(event)
     event.stopPropagation();
     event.preventDefault();
 	
-	document.getElementById('status').innerText = "DO IT";
-	setTimeout("showStatus(300)", 0);
-}
-
-function dragLeave(event)
-{
-	//setTimeout("hideStatus()", 0);
+	document.getElementById("imageArea").getElementsByTagName('img')[0].src = "Images/Arrow.png";
+	
 }
 
 function dragOver(event)
@@ -199,6 +194,15 @@ function dragOver(event)
 
     event.stopPropagation();
     event.preventDefault();
+}
+
+function dragLeave(event)
+ {
+
+    event.stopPropagation();
+    event.preventDefault();
+	
+	document.getElementById("imageArea").getElementsByTagName('img')[0].src = "Images/tumblrDefault.png";
 }
 
 function isLocal()
@@ -254,6 +258,21 @@ function checkForAudio()
     return false;
 }
 
+function checkForYoutube()
+ {
+    // get the filename extension
+	var list = uriList[0].toLowerCase();
+    var urlSearch = list.search('youtube.com');
+
+    // check for photos
+    if (urlSearch != -1)
+    {
+		alert("youtube");
+        return true;
+    }
+    return false;
+}
+
 function getFilename()
 {
 	var fileNameWExtension = uriList[0].substr(uriList[0].lastIndexOf('/') + 1);
@@ -293,9 +312,55 @@ function fadeToDefault()
     var fadeHandler = function(a, c, s, f) {
         itemToFadeOut.style.opacity = c;
     };
-    new AppleAnimator(200, 13, 1.0, 0.0, fadeHandler).start();
+    new AppleAnimator(300, 13, 1.0, 0.0, fadeHandler).start();
     
     document.getElementById("imageArea").getElementsByTagName('img')[0].src = "Images/tumblrDefault.png";
+
+    // Values you provide
+    var itemToFadeIn = document.getElementById("imageArea");
+    // replace with name of element to fade
+    // Fading code
+    var fadeHandler = function(a, c, s, f) {
+        itemToFadeIn.style.opacity = c;
+    };
+    new AppleAnimator(300, 13, 0.0, 1.0, fadeHandler).start();
+}
+
+function fadeFromArrow()
+ {
+    // Values you provide
+    var itemToFadeOut = document.getElementById("imageArea");
+    // replace with name of element to fade
+    // Fading code
+    var fadeHandler = function(a, c, s, f) {
+        itemToFadeOut.style.opacity = c;
+    };
+    new AppleAnimator(300, 13, 1.0, 0.0, fadeHandler).start();
+    
+    document.getElementById("imageArea").getElementsByTagName('img')[0].src = "Images/tumblrDefault.png";
+
+    // Values you provide
+    var itemToFadeIn = document.getElementById("imageArea");
+    // replace with name of element to fade
+    // Fading code
+    var fadeHandler = function(a, c, s, f) {
+        itemToFadeIn.style.opacity = c;
+    };
+    new AppleAnimator(300, 13, 0.0, 1.0, fadeHandler).start();
+}
+
+function fadeToArrow()
+ {
+    // Values you provide
+    var itemToFadeOut = document.getElementById("imageArea");
+    // replace with name of element to fade
+    // Fading code
+    var fadeHandler = function(a, c, s, f) {
+        itemToFadeOut.style.opacity = c;
+    };
+    new AppleAnimator(300, 13, 1.0, 0.0, fadeHandler).start();
+    
+    document.getElementById("imageArea").getElementsByTagName('img')[0].src = "Images/Arrow.png";
 
     // Values you provide
     var itemToFadeIn = document.getElementById("imageArea");
@@ -395,8 +460,8 @@ function sendMovieURL()
     var email = document.getElementById('tumblrEmail').value;
     var generator = "tumblr widget 3.0";
     var type = "video";
-	var caption = getFilename();
-	var requestString = 'email=' + email + '&password=' + password + '&type=' + type + '&embed=' + movieURL + '&caption=' + caption + '&generator=' + generator;
+	var requestString = 'email=' + email + '&password=' + password + '&type=' + type + '&embed=' + movieURL + '&generator=' + generator;
+	alert(encodeURI(requestString));
 
     // indicate progress here
 	document.getElementById('status').innerText = "SENDING";

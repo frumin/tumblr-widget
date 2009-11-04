@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
-		EB22B7FB1093AD8000721953 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB22B7FA1093AD8000721953 /* Growl.framework */; };
-		EB22B7FE1093AD8600721953 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = EB22B7FA1093AD8000721953 /* Growl.framework */; };
-		EBDEA5861093FA7100F962E2 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EBDEA5851093FA7100F962E2 /* Icon.png */; };
+		EBA1199A10940D460011D20B /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = EBA1199910940D460011D20B /* Icon.icns */; };
+		EBB9E436109653A80026640E /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB9E435109653A80026640E /* Growl.framework */; };
+		EBB9E439109653AF0026640E /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = EBB9E435109653A80026640E /* Growl.framework */; };
 		EBE651EF109395D500AC8243 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBE651EE109395D500AC8243 /* WebKit.framework */; };
 		EBE652001093968700AC8243 /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = EBE651FF1093968700AC8243 /* Helper.m */; };
 /* End PBXBuildFile section */
@@ -23,7 +23,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				EB22B7FE1093AD8600721953 /* Growl.framework in CopyFiles */,
+				EBB9E439109653AF0026640E /* Growl.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,8 +38,8 @@
 		8D5B49B6048680CD000E48DA /* HelperPlugIn.widgetplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HelperPlugIn.widgetplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2F7E65807B2D6F200F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
-		EB22B7FA1093AD8000721953 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = "/Users/frumin/Downloads/Growl-1.2-src/build/Release/Growl.framework"; sourceTree = "<absolute>"; };
-		EBDEA5851093FA7100F962E2 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		EBA1199910940D460011D20B /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
+		EBB9E435109653A80026640E /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
 		EBE651EE109395D500AC8243 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = /System/Library/Frameworks/WebKit.framework; sourceTree = "<absolute>"; };
 		EBE651FE1093968700AC8243 /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
 		EBE651FF1093968700AC8243 /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helper.m; sourceTree = "<group>"; };
@@ -52,7 +52,7 @@
 			files = (
 				8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */,
 				EBE651EF109395D500AC8243 /* WebKit.framework in Frameworks */,
-				EB22B7FB1093AD8000721953 /* Growl.framework in Frameworks */,
+				EBB9E436109653A80026640E /* Growl.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,7 +83,7 @@
 		089C167CFE841241C02AAC07 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				EBDEA5851093FA7100F962E2 /* Icon.png */,
+				EBA1199910940D460011D20B /* Icon.icns */,
 				8D5B49B7048680CD000E48DA /* Info.plist */,
 				089C167DFE841241C02AAC07 /* InfoPlist.strings */,
 			);
@@ -104,7 +104,7 @@
 			children = (
 				1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */,
 				EBE651EE109395D500AC8243 /* WebKit.framework */,
-				EB22B7FA1093AD8000721953 /* Growl.framework */,
+				EBB9E435109653A80026640E /* Growl.framework */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
@@ -183,7 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */,
-				EBDEA5861093FA7100F962E2 /* Icon.png in Resources */,
+				EBA1199A10940D460011D20B /* Icon.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +216,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -239,6 +240,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

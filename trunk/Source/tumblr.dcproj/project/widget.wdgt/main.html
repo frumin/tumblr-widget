@@ -10,8 +10,8 @@
     <script type="text/javascript" src="localizedStrings.js" charset="utf-8"></script>
     <script type="text/javascript" src="main.js" charset="utf-8"></script>
 </head>
-<body onload="load();" apple-part="com.apple.Dashcode.part.StackLayout">
-    <div id="front" ondragenter="dragEnter(event)" ondrop="dragDrop(event)" ondragover="dragOver(event)" ondragleave="dragLeave(event)">
+<body onload="load();" apple-part="com.apple.Dashcode.part.StackLayout" ondragleave="dragLeave(event)" ondragenter="fadeToArrow();">
+    <div id="front" ondragenter="dragEnter(event)" ondrop="dragDrop(event)" ondragover="dragOver(event)">
         <img id="frontImg" src="Parts/Images/front.png" alt="" apple-locked="true" apple-part="com.apple.Dashcode.part.frontimage" apple-style="image-theme: 0; image-shape: 3; image-opacity: 1.00; image-top-color: 0.0652173913,0.0652173913,0.0652173913,1; image-bottom-color: 1,1,1,1; image-radius: 12,12,12,12; image-border: 1; image-border-color: 0.5294,0.5294,0.5294,1; image-border-width: 1; shine-strength: 0.90; shine-alpha-level: 0.67; shine-height: 0.50; glass-arc-height: 0.06; shadow-include-shadow: 1; shadow-offset: -1.00,-6.00; shadow-color: 0,0,0,0.3333;">
         <div id="loadingArea" apple-part="com.apple.Dashcode.part.imageLayout" apple-group="image" apple-default-image-visibility="hidden">
             <img id="DC_img1" class="apple-hidden" apple-group="image">
@@ -19,6 +19,7 @@
         <div id="imageArea" apple-part="com.apple.Dashcode.part.imageLayout" apple-group="image">
             <img id="DC_img" class="apple-hidden" apple-group="image" src="Images/tumblrDefault.png">
         </div>
+        <div id="box" apple-part="com.apple.Dashcode.part.box" apple-default-image-visibility="hidden"></div>
         <div class="apple-no-children" id="info" apple-part="com.apple.Dashcode.part.infobutton" apple-default-image-visibility="hidden"></div>
         <div apple-part="com.apple.Dashcode.part.imageLayout" id="ribbon" apple-group="image" apple-default-image-visibility="hidden"><img class="apple-hidden" src="Images/ribbon.png" id="inner_image1" apple-group="image"></div>
         <div id="status" apple-part="com.apple.Dashcode.part.text" class="apple-text apple-no-children" apple-default-image-visibility="hidden" apple-text-overflow="clip"></div>
