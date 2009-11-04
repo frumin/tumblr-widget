@@ -170,9 +170,13 @@ function dragDrop(event)
 			sendAudioURL();
 		}
 	}
-	if (checkForYoutube())
+	else if (checkForYoutube())
 	{
 		sendMovieURL();
+	}
+	else
+	{
+		fadeToDefault();
 	}
 }
 
@@ -326,53 +330,6 @@ function fadeToDefault()
     new AppleAnimator(300, 13, 0.0, 1.0, fadeHandler).start();
 }
 
-function fadeFromArrow()
- {
-    // Values you provide
-    var itemToFadeOut = document.getElementById("imageArea");
-    // replace with name of element to fade
-    // Fading code
-    var fadeHandler = function(a, c, s, f) {
-        itemToFadeOut.style.opacity = c;
-    };
-    new AppleAnimator(300, 13, 1.0, 0.0, fadeHandler).start();
-    
-    document.getElementById("imageArea").getElementsByTagName('img')[0].src = "Images/tumblrDefault.png";
-
-    // Values you provide
-    var itemToFadeIn = document.getElementById("imageArea");
-    // replace with name of element to fade
-    // Fading code
-    var fadeHandler = function(a, c, s, f) {
-        itemToFadeIn.style.opacity = c;
-    };
-    new AppleAnimator(300, 13, 0.0, 1.0, fadeHandler).start();
-}
-
-function fadeToArrow()
- {
-    // Values you provide
-    var itemToFadeOut = document.getElementById("imageArea");
-    // replace with name of element to fade
-    // Fading code
-    var fadeHandler = function(a, c, s, f) {
-        itemToFadeOut.style.opacity = c;
-    };
-    new AppleAnimator(300, 13, 1.0, 0.0, fadeHandler).start();
-    
-    document.getElementById("imageArea").getElementsByTagName('img')[0].src = "Images/Arrow.png";
-
-    // Values you provide
-    var itemToFadeIn = document.getElementById("imageArea");
-    // replace with name of element to fade
-    // Fading code
-    var fadeHandler = function(a, c, s, f) {
-        itemToFadeIn.style.opacity = c;
-    };
-    new AppleAnimator(300, 13, 0.0, 1.0, fadeHandler).start();
-}
-
-
 function sendPhotoPost()
  {
     var data = decodeURI(uriList[0].replace("file://localhost", ""));
@@ -393,45 +350,20 @@ function sendPhotoPost()
 
 function sendPhotoURL()
  {
-    var photoURL = decodeURI(uriList[0]);
+    var data = decodeURI(uriList[0]);
     var password = document.getElementById('tumblrPassword').value;
     var email = document.getElementById('tumblrEmail').value;
     var generator = "tumblr widget 3.0";
     var type = "photo";
-	var caption = getFilename();
-	var requestString = 'email=' + email + '&password=' + password + '&type=' + type + '&source=' + photoURL + '&caption=' + caption + '&generator=' + generator;
+    var caption = getFilename();
 
-    // indicate progress here
+    var requestString = '-F email=' + email + ' -F "password=' + password + '" -F type=' + type + ' -F "source=' + data + '" -F "caption=' + caption + '" -F "generator=' + generator + '"';
+
+    command = '/usr/bin/curl -H "Content-Type: multipart/form-data; charset=utf-8" ' + requestString + ' http://www.tumblr.com/api/write';
+    // indicate that you're working here
 	document.getElementById('status').innerText = "SENDING";
 	setTimeout("showStatus(300)", 0);
-
-    xmlhttp = new XMLHttpRequest();
-
-    xmlhttp.open("POST",
-    "http://www.tumblr.com/api/write",
-    true);
-    xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-    xmlhttp.send(encodeURI(requestString));
-
-    xmlhttp.onreadystatechange = function() {
-        if (xmlhttp.status == 400) {
-            document.getElementById('status').innerText = "WHAT?";
-			setTimeout("fadeToDefault()", 0);
-			setTimeout("hideStatus()", 2000);
-        }
-        else if (xmlhttp.status == 403) {
-            document.getElementById('status').innerText = "NO GO";
-			setTimeout("fadeToDefault()", 0);
-			showBack();
-			setTimeout("hideStatus()", 2000);
-        }
-        else {
-			document.getElementById('status').innerText = "DONE!";
-			setTimeout("hideStatus()", 2000);
-			setTimeout("fadeToDefault()", 0);
-        }
-    }
+    cmdout = widget.system(command, uploadHandler);
 }
 
 
@@ -455,45 +387,20 @@ function sendMoviePost()
 
 function sendMovieURL()
  {
-    var movieURL = decodeURI(uriList[0]);
+    var data = decodeURI(uriList[0]);
     var password = document.getElementById('tumblrPassword').value;
     var email = document.getElementById('tumblrEmail').value;
     var generator = "tumblr widget 3.0";
     var type = "video";
-	var requestString = 'email=' + email + '&password=' + password + '&type=' + type + '&embed=' + movieURL + '&generator=' + generator;
-	alert(encodeURI(requestString));
+    var caption = getFilename();
 
-    // indicate progress here
+    var requestString = '-F email=' + email + ' -F "password=' + password + '" -F type=' + type + ' -F "embed=' + data + '" -F "title=' + caption + '" -F "generator=' + generator + '"';
+
+    command = '/usr/bin/curl -H "Content-Type: multipart/form-data; charset=utf-8" ' + requestString + ' http://www.tumblr.com/api/write';
+    // indicate that you're working here
 	document.getElementById('status').innerText = "SENDING";
 	setTimeout("showStatus(300)", 0);
-
-    xmlhttp = new XMLHttpRequest();
-
-    xmlhttp.open("POST",
-    "http://www.tumblr.com/api/write",
-    true);
-    xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-    xmlhttp.send(encodeURI(requestString));
-
-    xmlhttp.onreadystatechange = function() {
-        if (xmlhttp.status == 400) {
-            document.getElementById('status').innerText = "WHAT?";
-			setTimeout("fadeToDefault()", 0);
-			setTimeout("hideStatus()", 2000);
-        }
-        else if (xmlhttp.status == 403) {
-            document.getElementById('status').innerText = "NO GO";
-			setTimeout("fadeToDefault()", 0);
-			showBack();
-			setTimeout("hideStatus()", 2000);
-        }
-        else {
-			document.getElementById('status').innerText = "DONE!";
-			setTimeout("hideStatus()", 2000);
-			setTimeout("fadeToDefault()", 0);
-        }
-    }
+    cmdout = widget.system(command, uploadHandler);
 }
 
 function sendAudioPost()
@@ -516,45 +423,20 @@ function sendAudioPost()
 
 function sendAudioURL()
  {
-    var audioURL = decodeURI(uriList[0]);
+    var data = decodeURI(uriList[0].replace("file://localhost", ""));
     var password = document.getElementById('tumblrPassword').value;
     var email = document.getElementById('tumblrEmail').value;
     var generator = "tumblr widget 3.0";
     var type = "audio";
-	var caption = getFilename();
-	var requestString = 'email=' + email + '&password=' + password + '&type=' + type + '&externally-hosted-url=' + audioURL + '&caption=' + caption + '&generator=' + generator;
+    var caption = getFilename();
 
-    // indicate progress here
+    var requestString = '-F email=' + email + ' -F "password=' + password + '" -F type=' + type + ' -F "externally-hosted-url=' + data + '" -F "caption=' + caption + '" -F "generator=' + generator + '"';
+
+    command = '/usr/bin/curl -H "Content-Type: multipart/form-data; charset=utf-8" ' + requestString + ' http://www.tumblr.com/api/write';
+    // indicate that you're working here
 	document.getElementById('status').innerText = "SENDING";
 	setTimeout("showStatus(300)", 0);
-
-    xmlhttp = new XMLHttpRequest();
-
-    xmlhttp.open("POST",
-    "http://www.tumblr.com/api/write",
-    true);
-    xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-    xmlhttp.send(encodeURI(requestString));
-
-    xmlhttp.onreadystatechange = function() {
-        if (xmlhttp.status == 400) {
-            document.getElementById('status').innerText = "WHAT?";
-			setTimeout("fadeToDefault()", 0);
-			setTimeout("hideStatus()", 2000);
-        }
-        else if (xmlhttp.status == 403) {
-            document.getElementById('status').innerText = "NO GO";
-			setTimeout("fadeToDefault()", 0);
-			showBack();
-			setTimeout("hideStatus()", 2000);
-        }
-        else {
-			document.getElementById('status').innerText = "DONE!";
-			setTimeout("hideStatus()", 2000);
-			setTimeout("fadeToDefault()", 0);
-        }
-    }
+    cmdout = widget.system(command, uploadHandler);
 }
 
 function uploadHandler(obj)
