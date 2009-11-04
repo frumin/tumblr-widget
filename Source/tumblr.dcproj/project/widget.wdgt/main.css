@@ -266,3 +266,18 @@ body {
     width: auto;
     height: auto;
 }
+
+#box {
+    border-color: black;
+    border-width: 1px;
+    position: absolute;
+    margin-top: 0px;
+    -webkit-border-top-left-radius: 12px 12px;
+    -webkit-border-top-right-radius: 12px 12px;
+    -webkit-border-bottom-left-radius: 12px 12px;
+    -webkit-border-bottom-right-radius: 12px 12px;
+    width: 112px;
+    height: 112px;
+    left: 44px;
+    top: 4px;
+}
